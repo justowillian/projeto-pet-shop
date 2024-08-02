@@ -1,5 +1,6 @@
 nome: petshop 4 patas
-sistema: 3 caixa, 2 gerente, 1 dono, 1 supervisor, 6 encarregado.
+sistema: 3 caixa, 2 gerente, 1 dono, 1 supervisor, 6 encarregados.
 saída e entrada de dinheiro, compras e vendas dos produtos
 produtos e valores: ração (variavel) $10 - 200, escova para pet $30
-Frequentantes de todos os tipos Preto, Branco, Amarelo, Rico, Pobres
+Frequentantes de todos os tipos.
+
