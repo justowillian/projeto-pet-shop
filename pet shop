@@ -4,9 +4,11 @@ saída e entrada de dinheiro, compras e vendas dos produtos
 produtos e valores: ração (variavel) $10 - 200, escova para pet $30
 Frequentantes de todos os tipos
 
-Gerente é responsável pela entrada e saída de dinheiro(controle de caixa)
+Caixa é responsável pela entrada e saída de dinheiro(controle de caixa)
 
-Funcionário é responsável por cadastrar cliente, alterar cliente, ver os produtos disponiveis e repor quando necessário
+Encarregados é responsável por cadastrar cliente, alterar cliente, ver os produtos disponiveis e repor quando necessário
 
 Supervisor é responsável por ver se os fúncionarios estão trabalhando corretamente, ele pode fazer as mesmas coisas que o fúncionario e tambem excluir clientes
+
+Gerente é poder de decisão, como demitir fúncionarios
 
