@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela de Preços - Pet Shop 4 Patas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://images.unsplash.com/photo-1599326085101-abe9f98550f1?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); 
+            background-size: cover;
+            background-position: center; 
+            background-attachment: fixed; 
+            color: #fff5f5;
+        }
+        header {
+            background-color: #4e3b2d;
+            padding: 10px 0;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        nav li {
+            display: inline;
+            margin-left: 20px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #f7d799;
+            font-weight: bold;
+        }
+        .profile-cart {
+            display: flex;
+            align-items: center;
+        }
+        .profile-cart img {
+            width: 30px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 20px auto;
+        }
+        .product {
+            background-color: rgba(78, 59, 45, 0.8);
+            border-radius: 8px;
+            margin: 10px;
+            padding: 20px;
+            text-align: center;
+            width: calc(33.333% - 20px);           
+            box-sizing: border-box; 
+        }
+        .product img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+        .price {
+            font-size: 1.2em;
+            color: #d49a2a;
+        }
+        .button {
+            background-color: #4e3b2d; 
+            color: #f7d799; 
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .button:hover {
+            background-color: #d49a2a; 
+        }
+        @media (max-width: 768px) {
+            .product {
+                width: calc(50% - 20px); 
+            }
+        }
+        @media (max-width: 480px) {
+            .product {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="serviços.html">Serviços</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+        </ul>
+    </nav>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <div class="profile-cart">
+        <div style="cursor: pointer;">
+            <a href="Login.html" style="text-decoration: none; color: inherit;">
+            <i  class="fas fa-user" id="profile-icon" style="font-size: 25px;" title="Perfil"></i></a>
+        </div>
+        <div style="cursor: pointer;" onclick="showCart()">
+            <i class="fas fa-shopping-cart" id="cart-icon" style="font-size: 25px;" title="Carrinho"></i>
+        </div>
+    </div>
+    
+</header>
+    <h1>Nossos Produtos</h1>
+    <div class="product-container">
+        <div class="product">
+            <img src="https://www.katirapet.com.br/uploads/katirapet/produtos_imagens/special-dog-plus-adultos-carne-x4fm8-20230418131048169021270824865651.png" alt="Ração">
+            <h3>Ração</h3>
+            <p>Ração para 
+                <select id="tipo-racao">
+                    <option value="Gato">Gato</option>
+                    <option value="Cachorro">Cachorro</option>
+                </select>
+            </p>
+            <p>
+                <select id="racao-preco">
+                    <option value="2599">R$ 25,99 (1kg)</option>
+                    <option value="7990">R$ 79,90 (5kg)</option>
+                    <option value="14990">R$ 149,90 (10kg)</option>
+                    <option value="31200">R$ 312,00 (25kg)</option>
+                    <option value="60000">R$ 600,00 (50kg)</option>
+                </select>
+            </p>
+            <a href="#" class="button" onclick="addToOrder()">Comprar</a>
+        </div>
+        <div class="product">
+            <img src="https://static.wixstatic.com/media/08a8c4_bb274febb7004fdd98f118aba4594cf6~mv2.png/v1/fill/w_490,h_490,al_c,lg_1,q_85,enc_auto/08a8c4_bb274febb7004fdd98f118aba4594cf6~mv2.png" alt="Shampoo">
+            <h3>Shampoo 700 ml</h3>
+            <p>Shampoo 5 em 1</p>
+            <p class="price">R$ 30,00</p>
+            <a href="#" class="button" onclick="addToOrder('Shampoo 700 ml', 30.00)">Comprar</a>
+        </div>
+        <div class="product">
+            <img src="Brinquedos.png" alt="Brinquedo">
+            <h3>Kit 3 com Brinquedos</h3>
+            <p>Kit com 3 Brinquedos diversos para pets</p>
+            <p class="price">R$ 20,00</p>
+            <a href="#" class="button" onclick="addToOrder('Kit 3 com Brinquedos', 20.00)">Comprar</a>
+        </div>
+        <div class="product">
+            <img src="Coleira.png" alt="Coleira">
+            <h3>Coleira</h3>
+            <p>Coleira de Couro</p>
+            <p class="price">R$ 11,99</p>
+            <a href="#" class="button" onclick="addToOrder('Coleira', 11.99)">Comprar</a>
+        </div>
+        <div class="product">
+            <img src="Peitoral.png" alt="Peitoral">
+            <h3>Coleira Peitoral para Cachorro</h3>
+            <p>Coleira Peitoral Para Cachorro Sem Tração Ajustável Oxford Refletivo de Fácil Controle</p>
+            <p class="price">R$ 112,90</p>
+            <a href="#" class="button" onclick="addToOrder('Coleira Peitoral para Cachorro', 112.90)">Comprar</a>
+        </div>
+        <div class="product">
+            <img src="Guia.png" alt="Enforcador">
+            <h3>Enforcador</h3>
+            <p>Enforcador com guia para cães</p>
+            <p class="price">R$ 25,50</p>
+            <a href="#" class="button" onclick="addToOrder('Enforcador', 25.50)">Comprar</a>
+        </div>
+        <div class="product">
+            <img src="Pet.png" alt="Brinquedos Simples">
+            <h3>Brinquedo</h3>
+            <p>Brinquedo para o seu pet! (valor unitário)</p>
+            <p class="price">R$ 7,99</p>
+            <a href="#" class="button" onclick="addToOrder('Brinquedo', 7.99)">Comprar</a>
+        </div>
+        <div class="product">
+            <img src="sacolinha.png" alt="Porta Saquinho">
+            <h3>Porta Saquinho</h3>
+            <p>Porta saquinhos com refil</p>
+            <p class="price">R$ 16,00</p>
+            <a href="#" class="button" onclick="addToOrder('Porta Saquinho', 16.00)">Comprar</a>
+        </div>
+        <div class="product">
+            <img src="escova.png" alt="Escova/Rasqueadeira">
+            <h3>Escova/Rasqueadeira</h3>
+            <p>Escova/Rasqueadeira para pets</p>
+            <p class="price">R$ 9,99</p>
+            <a href="#" class="button" onclick="addToOrder('Escova/Rasqueadeira', 9.99)">Comprar</a>
+        </div>
+        <div class="product">
+            <img src="vasilha.png" alt="Comedouro">
+            <h3>Comedouro duplo</h3>
+            <p>Comedouro Coma melhor</p>
+            <p class="price">R$ 100,00</p>
+            <a href="#" class="button" onclick="addToOrder('Comedouro duplo', 100.00)">Comprar</a>
+        </div>
+        <div class="product">
+            <img src="Cama.png" alt="Cama para pet">
+            <h3>Cama para pet</h3>
+            <p>Cama para seu pet se sentir nas nuvens</p>
+            <p class="price">R$ 299,90</p>
+            <a href="#" class="button" onclick="addToOrder('Cama para pet', 299.90)">Comprar</a>
+        </div>
+        <div class="product">
+            <img src="parzinha.png" alt="Pazinha">
+            <h3>Pazinha</h3>
+            <p>Pazinha Higiénica</p>
+            <p class="price">R$ 3,99</p>
+            <a href="#" class="button" onclick="addToOrder('Pazinha', 3.99)">Comprar</a>
+        </div>
+        
+    <script>
+         let order = []; 
+         function showCart() {
+    const cartItems = order.map(({ item, price }) => `${item} - R$ ${price}`).join('\n');
+    if (cartItems.length === 0) {
+        alert('Seu carrinho está vazio.');
+    } else {
+        alert(`Itens no seu carrinho:\n${cartItems}`);
+    }
+}
+
+function addToOrder(item, price) {
+    order.push({ item, price });
+    alert(`${item} adicionado ao pedido.`);
+}
+
+
+        function showReview() {
+            const orderSummary = document.getElementById('order-summary');
+            orderSummary.innerHTML = '';
+    
+            if (order.length === 0) {
+                orderSummary.innerHTML = '<p>Nenhum item adicionado ao pedido.</p>';
+                document.getElementById('review').style.display = 'block';
+                alert('Seu carrinho está vazio.');
+                return;
+            }
+    
+            let total = 0;
+            let itemList = ''; 
+            order.forEach(({ item, price }) => {
+                total += parseFloat(price);
+                const div = document.createElement('div');
+                div.classList.add('review-item');
+                div.textContent = `${item} - R$ ${price}`;
+                orderSummary.appendChild(div);
+                itemList += `${item} - R$ ${price}\n`; 
+            });
+    
+            const totalDiv = document.createElement('div');
+            totalDiv.classList.add('review-item');
+            totalDiv.textContent = `Total: R$ ${total.toFixed(2)}`;
+            orderSummary.appendChild(totalDiv);
+    
+            document.getElementById('review').style.display = 'block';
+            alert(`Seu pedido:\n${itemList}\nTotal: R$ ${total.toFixed(2)}`);
+        }
+    </script>    
+    
+</body>
+</html>
